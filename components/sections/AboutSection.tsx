@@ -2,10 +2,12 @@
 
 import { useRef, useEffect } from "react";
 import { useInView } from "motion/react";
+import Link from "next/link";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { LeafAccent } from "@/components/ui/leaf-accent";
 import { RoseAccent } from "@/components/ui/rose-accent";
 import { SparklesText } from "../ui/sparkles-text";
+import { Button } from "@/components/ui/button";
 
 export function AboutSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -72,6 +74,17 @@ export function AboutSection() {
               <div className="h-px w-10 bg-primary/40" />
               <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
               <div className="h-px w-10 bg-primary/40" />
+            </div>
+          </BlurFade>
+
+          <BlurFade delay={0.44}>
+            <div className="flex flex-row gap-3 justify-center pt-2">
+              <Button asChild variant="default" className="rounded-full p-5 font-heading font-semibold uppercase">
+                <Link href="/menu">Order Now</Link>
+              </Button>
+              <Button asChild variant="outline" className="rounded-full p-5 font-heading font-semibold uppercase">
+                <Link href="/menu">View Menu</Link>
+              </Button>
             </div>
           </BlurFade>
         </div>

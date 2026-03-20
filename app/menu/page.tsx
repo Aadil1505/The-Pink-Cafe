@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { RoseAccent } from "@/components/ui/rose-accent";
+import { LeafAccent } from "@/components/ui/leaf-accent";
 import { MENU_CATEGORIES, RESTAURANT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -13,31 +15,29 @@ export default function MenuPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-primary py-24 px-6 text-center">
+      <section className="relative py-24 px-6 text-center border-b border-border overflow-hidden">
+        <RoseAccent className="absolute -top-16 -left-16 w-72 h-72 text-primary opacity-[0.05] rotate-12 pointer-events-none" />
+        <LeafAccent className="absolute -bottom-8 -right-12 w-56 h-56 text-primary opacity-[0.06] -rotate-20 pointer-events-none" />
         <BlurFade>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">
-            24 Park Ave, Rockville Centre
-          </span>
-          <h1 className="font-heading text-5xl md:text-6xl font-bold text-primary-foreground mt-4">
-            Our Menu
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-foreground mt-4">
+            Menu
           </h1>
-          <p className="text-primary-foreground/80 mt-4 text-lg max-w-lg mx-auto">
-            Everything made fresh, every morning. Come Hungry.
+          <p className="text-muted-foreground mt-4 text-base max-w-md mx-auto">
+            Everything made fresh, every morning. Baked in-house, served with love.
           </p>
         </BlurFade>
-      </div>
+      </section>
 
       {/* Menu content */}
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="relative overflow-hidden">
+        <LeafAccent className="absolute top-10 -left-20 w-80 h-80 text-primary opacity-[0.04] rotate-45 pointer-events-none" />
+        <RoseAccent className="absolute bottom-20 -right-20 w-96 h-96 text-primary opacity-[0.04] -rotate-12 pointer-events-none" />
+      <div className="max-w-3xl mx-auto px-6 py-16">
         <Tabs defaultValue="pastries">
           <BlurFade>
-            <TabsList className="w-full flex flex-wrap gap-2 h-auto bg-muted p-1.5 rounded-xl mb-10">
+            <TabsList variant="line" className="w-full h-auto mb-12">
               {MENU_CATEGORIES.map((cat) => (
-                <TabsTrigger
-                  key={cat.id}
-                  value={cat.id}
-                  className="flex-1 min-w-[120px] rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium"
-                >
+                <TabsTrigger key={cat.id} value={cat.id} className="flex-1 py-2.5">
                   {cat.label}
                 </TabsTrigger>
               ))}
@@ -46,31 +46,32 @@ export default function MenuPage() {
 
           {MENU_CATEGORIES.map((cat) => (
             <TabsContent key={cat.id} value={cat.id}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {cat.items.map((item, i) => (
-                  <BlurFade key={item.name} delay={0.05 + i * 0.06}>
-                    <div className="bg-card border border-border rounded-xl p-5 flex justify-between items-start gap-4 hover:border-primary/40 transition-colors">
-                      <div className="flex flex-col gap-1 flex-1">
-                        <h3 className="font-heading text-base font-semibold text-foreground">
-                          {item.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                      <span className="text-sm font-semibold text-primary shrink-0 mt-0.5">
-                        {item.price}
+              {cat.items.map((item, i) => (
+                <BlurFade key={item.name} delay={0.04 + i * 0.05}>
+                  <div className="py-5 flex justify-between items-start gap-6">
+                    <div className="flex flex-col gap-1">
+                      <span className="font-heading text-base font-semibold text-foreground">
+                        {item.name}
+                      </span>
+                      <span className="text-sm text-muted-foreground leading-relaxed">
+                        {item.description}
                       </span>
                     </div>
-                  </BlurFade>
-                ))}
-              </div>
+                    <span className="text-sm font-semibold text-primary shrink-0 mt-0.5">
+                      {item.price}
+                    </span>
+                  </div>
+                  {i < cat.items.length - 1 && (
+                    <div className="border-b border-border" />
+                  )}
+                </BlurFade>
+              ))}
             </TabsContent>
           ))}
         </Tabs>
 
         <BlurFade delay={0.3}>
-          <p className="text-center text-sm text-muted-foreground mt-12">
+          <p className="text-center text-sm text-muted-foreground mt-16">
             Menu items and availability may vary. Follow us{" "}
             <a
               href={RESTAURANT_INFO.social.instagram}
@@ -83,6 +84,7 @@ export default function MenuPage() {
             for daily specials.
           </p>
         </BlurFade>
+      </div>
       </div>
     </div>
   );

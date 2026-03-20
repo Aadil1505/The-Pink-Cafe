@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { RoseAccent } from "@/components/ui/rose-accent";
 import { LeafAccent } from "@/components/ui/leaf-accent";
+import { Button } from "@/components/ui/button";
 
 const DESSERTS = [
   {
@@ -124,12 +125,9 @@ export function FeaturedSection() {
         {/* CTA */}
         <BlurFade delay={0.5}>
           <div className="text-center mt-12">
-            <Link
-              href="/menu"
-              className="inline-flex items-center justify-center rounded-full border border-primary text-primary px-7 py-3 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
-            >
-              See Full Menu
-            </Link>
+            <Button asChild variant="outline" className="rounded-full p-5 font-heading font-semibold uppercase">
+              <Link href="/menu">See Full Menu</Link>
+            </Button>
           </div>
         </BlurFade>
       </div>

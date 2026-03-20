@@ -23,6 +23,9 @@ export function TestimonialsSection() {
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mt-3">
               A Little Love from Our Guests.
             </h2>
+            <p className="text-muted-foreground mt-4 max-w-md mx-auto text-base">
+              Real words from real regulars. We are proud of every one.
+            </p>
           </div>
         </BlurFade>
 

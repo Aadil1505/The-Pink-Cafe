@@ -29,6 +29,9 @@ export function LocationSection() {
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mt-3">
               Too Easy to Find.
             </h2>
+            <p className="text-muted-foreground mt-4 max-w-md mx-auto text-base">
+              Right in the heart of Rockville Centre. Stop by, we saved you a seat.
+            </p>
           </div>
         </BlurFade>
 

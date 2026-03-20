@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -41,18 +42,12 @@ export function HeroSection() {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="absolute bottom-10 left-8 z-10 flex flex-row gap-3"
       >
-        <Link
-          href="/menu"
-          className="inline-flex items-center justify-center rounded-full bg-primary-foreground text-primary px-7 py-3.5 text-sm font-semibold transition-opacity hover:opacity-90"
-        >
-          View Menu
-        </Link>
-        <Link
-          href="/#order"
-          className="inline-flex items-center justify-center rounded-full border border-primary-foreground/60 text-primary-foreground px-7 py-3.5 text-sm font-semibold backdrop-blur-sm hover:bg-primary-foreground/10 transition-colors"
-        >
-          Order Now
-        </Link>
+        <Button asChild variant="secondary" className="rounded-full p-5 font-heading font-semibold uppercase">
+          <Link href="/menu">View Menu</Link>
+        </Button>
+        <Button asChild variant="outline" className="rounded-full p-5 font-heading font-semibold uppercase border-primary-foreground/60 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 hover:text-primary-foreground backdrop-blur-sm">
+          <Link href="/#order">Order Now</Link>
+        </Button>
       </motion.div>
     </section>
   );

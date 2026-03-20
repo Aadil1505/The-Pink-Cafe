@@ -4,6 +4,7 @@ import { Instagram } from "lucide-react";
 import { RESTAURANT_INFO } from "@/lib/constants";
 import { LeafAccent } from "@/components/ui/leaf-accent";
 import { RoseAccent } from "@/components/ui/rose-accent";
+import { Button } from "@/components/ui/button";
 
 export function CTABanner() {
   return (
@@ -22,28 +23,22 @@ export function CTABanner() {
 
         <BlurFade delay={0.12}>
           <p className="text-muted-foreground text-lg max-w-md">
-            24 N Park Ave, Rockville Centre. Open six days a week, serving the
+            24 N Park Ave, Rockville Centre. Open everyday, serving the
             pastries and coffee of your dreams.
           </p>
         </BlurFade>
 
         <BlurFade delay={0.22}>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/menu"
-              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
-              View Menu
-            </Link>
-            <Link
-              href={RESTAURANT_INFO.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border text-foreground px-7 py-3.5 text-sm font-semibold hover:bg-accent transition-colors"
-            >
-              <Instagram size={16} />
-              Instagram
-            </Link>
+            <Button asChild variant="default" className="rounded-full p-5 font-heading font-semibold uppercase">
+              <Link href="/menu">View Menu</Link>
+            </Button>
+            <Button asChild variant="outline" className="rounded-full p-5 font-heading font-semibold uppercase gap-2">
+              <Link href={RESTAURANT_INFO.social.instagram} target="_blank" rel="noopener noreferrer">
+                <Instagram size={16} />
+                Instagram
+              </Link>
+            </Button>
           </div>
         </BlurFade>
       </div>

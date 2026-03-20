@@ -57,6 +57,9 @@ export function GallerySection() {
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mt-3">
               Pretty in Pink, Top to Bottom.
             </h2>
+            <p className="text-muted-foreground mt-4 max-w-md mx-auto text-base">
+              Every corner is designed to delight. Come for the pastries, stay for the ambiance.
+            </p>
           </div>
         </BlurFade>
 
