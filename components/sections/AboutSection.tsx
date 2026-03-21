@@ -46,7 +46,7 @@ export function AboutSection() {
 
           <BlurFade delay={0.2}>
             <p className="text-muted-foreground text-base leading-relaxed max-w-sm mx-auto">
-              Every detail, from the blush-pink walls to the elegant desserts, is designed to make you feel good.
+              Every detail, from the blush-pink walls to the elegant desserts, everything is designed to make you feel good.
             </p>
           </BlurFade>
 
