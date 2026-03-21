@@ -39,9 +39,8 @@ export function AboutSection() {
 
           <BlurFade delay={0.12}>
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground leading-[1.1]">
-              A <SparklesText className="font-heading text-4xl md:text-5xl font-bold text-foreground leading-[1.1] inline">Sweet</SparklesText> Corner of {""}
+              THE <SparklesText className="font-heading text-4xl md:text-5xl font-bold leading-[1.1] inline text-primary">PINK</SparklesText> CAFE
               {/* <br/> */}
-              <span className="text-primary">Pure Pink.</span>
             </h2>
           </BlurFade>
 
